@@ -1668,6 +1668,62 @@ body {
     }
 }
 
+/* Bottom Navigation for Mobile */
+@media (max-width: 768px) {
+    /* Hide top navbar on mobile */
+    .navbar {
+        display: none;
+    }
+    
+    /* Bottom Nav Container */
+    .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(19, 24, 50, 0.98);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(0, 98, 155, 0.3);
+        display: flex;
+        justify-content: space-around;
+        padding: 0.5rem 0;
+        z-index: 1000;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    .bottom-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.2rem;
+        padding: 0.5rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.75rem;
+        transition: var(--transition-fast);
+        flex: 1;
+        max-width: 80px;
+    }
+    
+    .bottom-nav-item i {
+        font-size: 1.3rem;
+    }
+    
+    .bottom-nav-item.active,
+    .bottom-nav-item:active {
+        color: var(--primary-light);
+    }
+    
+    .bottom-nav-item span {
+        font-size: 0.7rem;
+    }
+    
+    /* Add padding to main content for bottom nav */
+    .main-content {
+        padding-bottom: 80px;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .hero-title {
@@ -1780,6 +1836,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, var(--primary-light), var(--secondary-color));
 }
+
 
 
 
