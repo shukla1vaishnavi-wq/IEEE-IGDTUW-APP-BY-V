@@ -1078,7 +1078,8 @@ body {
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
     width: 100%;
     padding: 0.9rem;
     background: var(--bg-secondary);
@@ -1090,12 +1091,12 @@ body {
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
     outline: none;
     border-color: var(--primary-light);
     box-shadow: 0 0 0 3px rgba(0, 98, 155, 0.1);
 }
-
 .rating-stars {
     display: flex;
     gap: 0.5rem;
@@ -1678,3 +1679,4 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, var(--primary-light), var(--secondary-color));
 }
+
