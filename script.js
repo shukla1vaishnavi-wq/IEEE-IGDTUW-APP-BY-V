@@ -478,70 +478,96 @@ feedbackForm.addEventListener('submit', (e) => {
     ratingInput.value = '';
 });
 
-// Login Form
+// Login Form - FIXED VERSION
 const loginForm = document.getElementById('loginForm');
 const loginCard = document.querySelector('.login-card');
 const memberDashboard = document.getElementById('memberDashboard');
 
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const email = document.getElementById('loginEmail').value;
-    const ieeeMemberNo = document.getElementById('ieeeMembershipNo').value;
-    const selectedRoles = document.getElementById('memberRole').value;
-    const password = document.getElementById('loginPassword').value;
-    
-    // Validate email domain
-    if (!email.endsWith('@igdtuw.ac.in')) {
-        alert('❌ Please use your IGDTUW college email (@igdtuw.ac.in)');
-        return;
-    }
-    
-    // Validate email format
-    const emailPattern = /^[a-z]+\d{3}(bt|mt|phd)(cse|ece|it|mca|mae|en|ep)[a-z]*\d{2}@igdtuw\.ac\.in$/i;
-    if (!emailPattern.test(email)) {
-        alert('❌ Invalid email format!\n\nExpected format: name + 3 digits + bt/mt + branch + year\nExample: vaishnavi075btece25@igdtuw.ac.in');
-        return;
-    }
-    
-    // Validate IEEE Membership Number
-    if (!/^\d{9}$/.test(ieeeMemberNo)) {
-        alert('❌ IEEE Membership Number must be exactly 9 digits');
-        return;
-    }
-    
-    // Validate role selection
-    if (!selectedRoles) {
-        alert('❌ Please select at least one role in IEEE IGDTUW');
-        return;
-    }
-    
-    // Extract name from email
-    const nameFromEmail = email.match(/^([a-z]+)/i)[1];
-    const capitalizedName = nameFromEmail.charAt(0).toUpperCase() + nameFromEmail.slice(1);
-    
-    // Password validation
-    if (password.length < 6) {
-        alert('❌ Password must be at least 6 characters long');
-        return;
-    }
-    
-    // Success
-    loginCard.style.display = 'none';
-    memberDashboard.style.display = 'block';
-    
-    document.getElementById('memberName').textContent = `Welcome, ${capitalizedName}!`;
-    document.getElementById('memberRole').textContent = selectedRoles;
-    
-    sessionStorage.setItem('loggedIn', 'true');
-    sessionStorage.setItem('memberName', capitalizedName);
-    sessionStorage.setItem('memberRole', selectedRoles);
-    sessionStorage.setItem('memberEmail', email);
-    sessionStorage.setItem('ieeeMemberNo', ieeeMemberNo);
-    
-    alert(`✅ Welcome ${capitalizedName}!\n\nRole(s): ${selectedRoles}\nIEEE Member ID: ${ieeeMemberNo}\nEmail: ${email}`);
-});
-
+if (loginForm) {
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        e.stopPropagation(); // CRITICAL: Prevents event bubbling
+        
+        console.log('Login form submitted'); // Debug log
+        
+        const email = document.getElementById('loginEmail').value.trim();
+        const ieeeMemberNo = document.getElementById('ieeeMembershipNo').value.trim();
+        const selectedRoles = document.getElementById('memberRole').value.trim();
+        const password = document.getElementById('loginPassword').value;
+        
+        // Validate email domain
+        if (!email.endsWith('@igdtuw.ac.in')) {
+            alert('❌ Please use your IGDTUW college email (@igdtuw.ac.in)');
+            return false; // CRITICAL: Return false to stop
+        }
+        
+        // Validate email format
+        const emailPattern = /^[a-z]+\d{3}(bt|mt|phd)(cse|ece|it|mca|mae|en|ep)[a-z]*\d{2}@igdtuw\.ac\.in$/i;
+        if (!emailPattern.test(email)) {
+            alert('❌ Invalid email format!\n\nExpected format: name + 3 digits + bt/mt + branch + year\nExample: vaishnavi075btece25@igdtuw.ac.in');
+            return false; // CRITICAL: Return false to stop
+        }
+        
+        // Validate IEEE Membership Number
+        if (!/^\d{9}$/.test(ieeeMemberNo)) {
+            alert('❌ IEEE Membership Number must be exactly 9 digits');
+            return false; // CRITICAL: Return false to stop
+        }
+        
+        // Validate role selection
+        if (!selectedRoles) {
+            alert('❌ Please select at least one role in IEEE IGDTUW');
+            return false; // CRITICAL: Return false to stop
+        }
+        
+        // Extract name from email
+        const nameMatch = email.match(/^([a-z]+)/i);
+        if (!nameMatch) {
+            alert('❌ Invalid email format');
+            return false; // CRITICAL: Return false to stop
+        }
+        
+        const nameFromEmail = nameMatch[1];
+        const capitalizedName = nameFromEmail.charAt(0).toUpperCase() + nameFromEmail.slice(1);
+        
+        // Password validation
+        if (password.length < 6) {
+            alert('❌ Password must be at least 6 characters long');
+            return false; // CRITICAL: Return false to stop
+        }
+        
+        // Success - Show dashboard
+        if (loginCard && memberDashboard) {
+            loginCard.style.display = 'none';
+            memberDashboard.style.display = 'block';
+        }
+        
+        const memberNameEl = document.getElementById('memberName');
+        const memberRoleEl = document.querySelector('#memberDashboard .member-role');
+        
+        if (memberNameEl) {
+            memberNameEl.textContent = `Welcome, ${capitalizedName}!`;
+        }
+        if (memberRoleEl) {
+            memberRoleEl.textContent = selectedRoles;
+        }
+        
+        // Store in sessionStorage
+        try {
+            sessionStorage.setItem('loggedIn', 'true');
+            sessionStorage.setItem('memberName', capitalizedName);
+            sessionStorage.setItem('memberRole', selectedRoles);
+            sessionStorage.setItem('memberEmail', email);
+            sessionStorage.setItem('ieeeMemberNo', ieeeMemberNo);
+        } catch (error) {
+            console.error('SessionStorage error:', error);
+        }
+        
+        alert(`✅ Welcome ${capitalizedName}!\n\nRole(s): ${selectedRoles}\nIEEE Member ID: ${ieeeMemberNo}\nEmail: ${email}`);
+        
+        return false; // CRITICAL: Return false at the end
+    });
+}
 // Multi-Select Role Functionality
 const roleDisplay = document.getElementById('roleDisplay');
 const roleDropdown = document.getElementById('roleDropdown');
@@ -658,6 +684,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
 
 
 
