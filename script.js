@@ -470,9 +470,24 @@ const memberDashboard = document.getElementById('memberDashboard');
 
 // Demo credentials (in production, this would be handled by a backend)
 const demoUsers = {
-    'coordinator@igdtuw.ac.in': { password: 'demo123', name: 'Priya Sharma', role: 'Event Coordinator' },
-    'chairperson@igdtuw.ac.in': { password: 'demo123', name: 'Ananya Gupta', role: 'Chairperson' },
-    'treasurer@igdtuw.ac.in': { password: 'demo123', name: 'Riya Verma', role: 'Treasurer' }
+    'coordinator@igdtuw.ac.in': { 
+        password: 'demo123', 
+        name: 'Priya Sharma', 
+        role: 'Event Coordinator',
+        ieeeMemberNo: '123456789'
+    },
+    'chairperson@igdtuw.ac.in': { 
+        password: 'demo123', 
+        name: 'Ananya Gupta', 
+        role: 'Chairperson',
+        ieeeMemberNo: '987654321'
+    },
+    'treasurer@igdtuw.ac.in': { 
+        password: 'demo123', 
+        name: 'Riya Verma', 
+        role: 'Treasurer',
+        ieeeMemberNo: '456789123'
+    }
 };
 
 loginForm.addEventListener('submit', (e) => {
@@ -555,3 +570,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
