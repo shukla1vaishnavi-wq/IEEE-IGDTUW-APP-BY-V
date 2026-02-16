@@ -538,7 +538,10 @@ function logout() {
     sessionStorage.removeItem('loggedIn');
     sessionStorage.removeItem('memberName');
     sessionStorage.removeItem('memberRole');
+    sessionStorage.removeItem('memberEmail');
+    sessionStorage.removeItem('ieeeMemberNo');
     loginForm.reset();
+    alert('✅ You have been logged out successfully!');
 }
 
 // Check if already logged in
@@ -584,5 +587,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
 
 
