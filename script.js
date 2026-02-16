@@ -12,3 +12,8 @@ navItems.forEach(item => {
         console.log("Navigated to: " + item.innerText);
     });
 });
+
+// Recruitment Criteria Logic
+function showCriteria(role) {
+    alert(`IEEE Recruitment for ${role} Role:\n\n1. Active IEEE Membership (Optional but preferred)\n2. CGPA > 7.5\n3. Passion for IGDTUW community growth.\n\nForm link will be sent to your student email.`);
+}
