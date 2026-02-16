@@ -591,6 +591,67 @@ loginForm.addEventListener('submit', (e) => {
     // Success message
     alert(`✅ Welcome ${capitalizedName}!\n\nRole: ${selectedRole}\nIEEE Member ID: ${ieeeMemberNo}\nEmail: ${email}`);
 });
+
+// Multi-Select Role Functionality
+const roleDisplay = document.getElementById('roleDisplay');
+const roleDropdown = document.getElementById('roleDropdown');
+const roleCheckboxes = roleDropdown.querySelectorAll('input[type="checkbox"]');
+const roleHiddenInput = document.getElementById('memberRole');
+
+// Toggle dropdown
+roleDisplay.addEventListener('click', (e) => {
+    e.stopPropagation();
+    roleDropdown.classList.toggle('active');
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    if (!document.getElementById('roleMultiSelect').contains(e.target)) {
+        roleDropdown.classList.remove('active');
+    }
+});
+
+// Update display when checkboxes change
+roleCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        updateRoleDisplay();
+    });
+});
+
+function updateRoleDisplay() {
+    const selectedRoles = Array.from(roleCheckboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+    
+    if (selectedRoles.length === 0) {
+        roleDisplay.innerHTML = '<span class="placeholder">Select your role(s)</span>';
+        roleHiddenInput.value = '';
+    } else if (selectedRoles.length === 1) {
+        roleDisplay.innerHTML = `<span class="selected-role">${selectedRoles[0]}</span>`;
+        roleHiddenInput.value = selectedRoles[0];
+    } else {
+        roleDisplay.innerHTML = `<span class="selected-role">${selectedRoles[0]}</span> <span class="role-count">+${selectedRoles.length - 1} more</span>`;
+        roleHiddenInput.value = selectedRoles.join(', ');
+    }
+}
+
+// Dashboard Button Functionality
+document.querySelectorAll('.dashboard-card button').forEach(button => {
+    button.addEventListener('click', function() {
+        const cardTitle = this.closest('.dashboard-card').querySelector('h4').textContent;
+        
+        if (cardTitle.includes('Events')) {
+            navigateToSection('events');
+        } else if (cardTitle.includes('Member')) {
+            alert('👥 Member Management\n\nThis feature allows you to:\n- View all IEEE members\n- Manage team assignments\n- Update member roles\n\n(Feature under development)');
+        } else if (cardTitle.includes('Analytics')) {
+            alert('📊 Analytics Dashboard\n\nView comprehensive statistics:\n- Event attendance trends\n- Member engagement metrics\n- Registration analytics\n\n(Feature under development)');
+        } else if (cardTitle.includes('Settings')) {
+            alert('⚙️ Account Settings\n\nManage your profile:\n- Update password\n- Edit contact information\n- Notification preferences\n\n(Feature under development)');
+        }
+    });
+});
+
 // Logout Function
 function logout() {
     loginCard.style.display = 'block';
@@ -647,6 +708,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
 
 
 
