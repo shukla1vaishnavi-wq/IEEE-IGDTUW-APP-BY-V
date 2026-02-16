@@ -455,43 +455,49 @@
 
                             <div class="form-group">
                                 <label for="memberRole">
-                                    <i class="fas fa-user-tag"></i> Your Role in IEEE IGDTUW
+                                    <i class="fas fa-user-tag"></i> Your Role(s) in IEEE IGDTUW
                                 </label>
-                                <select id="memberRole" required>
-                                    <option value="">Select your role</option>
-                                    <option value="Chairperson">Chairperson</option>
-                                    <option value="Vice Chairperson">Vice Chairperson</option>
-                                    <option value="General Secretary">General Secretary</option>
-                                    <option value="Sponsorship Head">Sponsorship Head</option>
-                                    <option value="Treasurer">Treasurer</option>
-                                    <option value="Event Management Head">Event Management Head</option>
-                                    <option value="Public Relation Head">Public Relation Head</option>
-                                    <option value="Creative Head">Creative Head</option>
-                                    <option value="HR Head">HR Head</option>
-                                    <option value="Content Head">Content Head</option>
-                                    <option value="Technical Head">Technical Head</option>
-                                    <option value="Media Head">Media Head</option>
-                                    <option value="Membership & Research Head">Membership & Research Head</option>
-                                    <option value="Sponsorship Associate">Sponsorship Associate</option>
-                                    <option value="Event Management Associate">Event Management Associate</option>
-                                    <option value="Public Relation Associate">Public Relation Associate</option>
-                                    <option value="Creative Associate">Creative Associate</option>
-                                    <option value="HR Associate">HR Associate</option>
-                                    <option value="Content Associate">Content Associate</option>
-                                    <option value="Technical Associate">Technical Associate</option>
-                                    <option value="Media Associate">Media Associate</option>
-                                    <option value="Membership & Research Associate">Membership & Research Associate</option>
-                                    <option value="Sponsorship Coordinator">Sponsorship Coordinator</option>
-                                    <option value="Event Management Coordinator">Event Management Coordinator</option>
-                                    <option value="Public Relation Coordinator">Public Relation Coordinator</option>
-                                    <option value="Creative Coordinator">Creative Coordinator</option>
-                                    <option value="HR Coordinator">HR Coordinator</option>
-                                    <option value="Content Coordinator">Content Coordinator</option>
-                                    <option value="Technical Coordinator">Technical Coordinator</option>
-                                    <option value="Media Coordinator">Media Coordinator</option>
-                                    <option value="Membership & Research Coordinator">Membership & Research Coordinator</option>
-                                    <option value="IEEE Member">IEEE Member</option>
-                                </select>
+                                <div class="multi-select-container" id="roleMultiSelect">
+                                    <div class="multi-select-display" id="roleDisplay">
+                                        <span class="placeholder">Select your role(s)</span>
+                                    </div>
+                                    <div class="multi-select-dropdown" id="roleDropdown">
+                                        <label class="role-option"><input type="checkbox" value="Chairperson"> Chairperson</label>
+                                        <label class="role-option"><input type="checkbox" value="Vice Chairperson"> Vice Chairperson</label>
+                                        <label class="role-option"><input type="checkbox" value="General Secretary"> General Secretary</label>
+                                        <label class="role-option"><input type="checkbox" value="Sponsorship Head"> Sponsorship Head</label>
+                                        <label class="role-option"><input type="checkbox" value="Treasurer"> Treasurer</label>
+                                        <label class="role-option"><input type="checkbox" value="Event Management Head"> Event Management Head</label>
+                                        <label class="role-option"><input type="checkbox" value="Public Relation Head"> Public Relation Head</label>
+                                        <label class="role-option"><input type="checkbox" value="Creative Head"> Creative Head</label>
+                                        <label class="role-option"><input type="checkbox" value="HR Head"> HR Head</label>
+                                        <label class="role-option"><input type="checkbox" value="Content Head"> Content Head</label>
+                                        <label class="role-option"><input type="checkbox" value="Technical Head"> Technical Head</label>
+                                        <label class="role-option"><input type="checkbox" value="Media Head"> Media Head</label>
+                                        <label class="role-option"><input type="checkbox" value="Membership & Research Head"> Membership & Research Head</label>
+                                        <label class="role-option"><input type="checkbox" value="Sponsorship Associate"> Sponsorship Associate</label>
+                                        <label class="role-option"><input type="checkbox" value="Event Management Associate"> Event Management Associate</label>
+                                        <label class="role-option"><input type="checkbox" value="Public Relation Associate"> Public Relation Associate</label>
+                                        <label class="role-option"><input type="checkbox" value="Creative Associate"> Creative Associate</label>
+                                        <label class="role-option"><input type="checkbox" value="HR Associate"> HR Associate</label>
+                                        <label class="role-option"><input type="checkbox" value="Content Associate"> Content Associate</label>
+                                        <label class="role-option"><input type="checkbox" value="Technical Associate"> Technical Associate</label>
+                                        <label class="role-option"><input type="checkbox" value="Media Associate"> Media Associate</label>
+                                        <label class="role-option"><input type="checkbox" value="Membership & Research Associate"> Membership & Research Associate</label>
+                                        <label class="role-option"><input type="checkbox" value="Sponsorship Coordinator"> Sponsorship Coordinator</label>
+                                        <label class="role-option"><input type="checkbox" value="Event Management Coordinator"> Event Management Coordinator</label>
+                                        <label class="role-option"><input type="checkbox" value="Public Relation Coordinator"> Public Relation Coordinator</label>
+                                        <label class="role-option"><input type="checkbox" value="Creative Coordinator"> Creative Coordinator</label>
+                                        <label class="role-option"><input type="checkbox" value="HR Coordinator"> HR Coordinator</label>
+                                        <label class="role-option"><input type="checkbox" value="Content Coordinator"> Content Coordinator</label>
+                                        <label class="role-option"><input type="checkbox" value="Technical Coordinator"> Technical Coordinator</label>
+                                        <label class="role-option"><input type="checkbox" value="Media Coordinator"> Media Coordinator</label>
+                                        <label class="role-option"><input type="checkbox" value="Membership & Research Coordinator"> Membership & Research Coordinator</label>
+                                        <label class="role-option"><input type="checkbox" value="IEEE Member"> IEEE Member</label>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="memberRole" required>
+                                <small class="input-hint">Select all roles you have held</small>
                             </div>
                             <div class="form-options">
                                 <label class="checkbox-label">
@@ -615,5 +621,6 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
