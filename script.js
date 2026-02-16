@@ -468,55 +468,69 @@ const loginForm = document.getElementById('loginForm');
 const loginCard = document.querySelector('.login-card');
 const memberDashboard = document.getElementById('memberDashboard');
 
-// Demo credentials (in production, this would be handled by a backend)
-const demoUsers = {
-    'coordinator@igdtuw.ac.in': { 
-        password: 'demo123', 
-        name: 'Priya Sharma', 
-        role: 'Event Coordinator',
-        ieeeMemberNo: '123456789'
-    },
-    'chairperson@igdtuw.ac.in': { 
-        password: 'demo123', 
-        name: 'Ananya Gupta', 
-        role: 'Chairperson',
-        ieeeMemberNo: '987654321'
-    },
-    'treasurer@igdtuw.ac.in': { 
-        password: 'demo123', 
-        name: 'Riya Verma', 
-        role: 'Treasurer',
-        ieeeMemberNo: '456789123'
-    }
-};
-
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
     const email = document.getElementById('loginEmail').value;
+    const ieeeMemberNo = document.getElementById('ieeeMembershipNo').value;
+    const selectedRole = document.getElementById('memberRole').value;
     const password = document.getElementById('loginPassword').value;
     
-    // Check credentials
-    if (demoUsers[email] && demoUsers[email].password === password) {
-        const user = demoUsers[email];
-        
-        // Hide login form, show dashboard
-        loginCard.style.display = 'none';
-        memberDashboard.style.display = 'block';
-        
-        // Update member info
-        document.getElementById('memberName').textContent = user.name;
-        document.getElementById('memberRole').textContent = user.role;
-        
-        // Store login state
-        sessionStorage.setItem('loggedIn', 'true');
-        sessionStorage.setItem('memberName', user.name);
-        sessionStorage.setItem('memberRole', user.role);
-    } else {
-        alert('Invalid credentials. Please try again.\n\nDemo accounts:\n- coordinator@igdtuw.ac.in / demo123\n- chairperson@igdtuw.ac.in / demo123\n- treasurer@igdtuw.ac.in / demo123');
+    // Validate email domain - must be @igdtuw.ac.in
+    if (!email.endsWith('@igdtuw.ac.in')) {
+        alert('❌ Please use your IGDTUW college email (@igdtuw.ac.in)');
+        return;
     }
+    
+    // Validate email format: name + roll number digits + btece/btcse etc + year + @igdtuw.ac.in
+    const emailPattern = /^[a-z]+\d{3}(bt|mt|phd)(cse|ece|it|mca|mae|en|ep)[a-z]*\d{2}@igdtuw\.ac\.in$/i;
+    if (!emailPattern.test(email)) {
+        alert('❌ Invalid email format!\n\nExpected format: name + 3 digits + bt/mt + branch + year\nExample: vaishnavi075btece25@igdtuw.ac.in');
+        return;
+    }
+    
+    // Validate IEEE Membership Number format (9 digits)
+    if (!/^\d{9}$/.test(ieeeMemberNo)) {
+        alert('❌ IEEE Membership Number must be exactly 9 digits');
+        return;
+    }
+    
+    // Validate role selection
+    if (!selectedRole) {
+        alert('❌ Please select your role in IEEE IGDTUW');
+        return;
+    }
+    
+    // Extract name from email (part before the numbers)
+    const nameFromEmail = email.match(/^([a-z]+)/i)[1];
+    const capitalizedName = nameFromEmail.charAt(0).toUpperCase() + nameFromEmail.slice(1);
+    
+    // For demo: Accept any password with minimum 6 characters
+    // In production, this would be validated against a database
+    if (password.length < 6) {
+        alert('❌ Password must be at least 6 characters long');
+        return;
+    }
+    
+    // Success - All validations passed
+    // Hide login form, show dashboard
+    loginCard.style.display = 'none';
+    memberDashboard.style.display = 'block';
+    
+    // Update member info
+    document.getElementById('memberName').textContent = `Welcome, ${capitalizedName}!`;
+    document.getElementById('memberRole').textContent = selectedRole;
+    
+    // Store login state
+    sessionStorage.setItem('loggedIn', 'true');
+    sessionStorage.setItem('memberName', capitalizedName);
+    sessionStorage.setItem('memberRole', selectedRole);
+    sessionStorage.setItem('memberEmail', email);
+    sessionStorage.setItem('ieeeMemberNo', ieeeMemberNo);
+    
+    // Success message
+    alert(`✅ Welcome ${capitalizedName}!\n\nRole: ${selectedRole}\nIEEE Member ID: ${ieeeMemberNo}\nEmail: ${email}`);
 });
-
 // Logout Function
 function logout() {
     loginCard.style.display = 'block';
@@ -570,4 +584,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
 
