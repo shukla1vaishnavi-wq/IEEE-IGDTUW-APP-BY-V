@@ -1097,6 +1097,7 @@ body {
     border-color: var(--primary-light);
     box-shadow: 0 0 0 3px rgba(0, 98, 155, 0.1);
 }
+
 .rating-stars {
     display: flex;
     gap: 0.5rem;
@@ -1566,6 +1567,7 @@ body {
         filter: drop-shadow(0 0 40px rgba(0, 169, 224, 0.7));
     }
 }
+
 /* Multi-Select Role Styling */
 .multi-select-container {
     position: relative;
@@ -1836,8 +1838,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, var(--primary-light), var(--secondary-color));
 }
-
-
-
-
-
