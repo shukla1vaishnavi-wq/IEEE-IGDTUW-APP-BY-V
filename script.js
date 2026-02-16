@@ -657,13 +657,38 @@ function logout() {
 }
 
 // Check if already logged in
-window.addEventListener('load', () => {
-    if (sessionStorage.getItem('loggedIn') === 'true') {
-        loginCard.style.display = 'none';
-        memberDashboard.style.display = 'block';
-        document.getElementById('memberName').textContent = sessionStorage.getItem('memberName');
-        document.getElementById('memberRole').textContent = sessionStorage.getItem('memberRole');
+function checkLoginStatus() {
+    try {
+        if (sessionStorage.getItem('loggedIn') === 'true') {
+            const loginCard = document.querySelector('.login-card');
+            const memberDashboard = document.getElementById('memberDashboard');
+            
+            if (loginCard && memberDashboard) {
+                loginCard.style.display = 'none';
+                memberDashboard.style.display = 'block';
+            }
+            
+            const memberNameEl = document.getElementById('memberName');
+            const memberRoleEl = document.querySelector('#memberDashboard .member-role');
+            
+            if (memberNameEl) {
+                memberNameEl.textContent = sessionStorage.getItem('memberName') || 'Welcome back!';
+            }
+            if (memberRoleEl) {
+                memberRoleEl.textContent = sessionStorage.getItem('memberRole') || 'Member';
+            }
+        }
+    } catch (error) {
+        console.error('SessionStorage error:', error);
     }
+}
+
+// And add this to DOMContentLoaded:
+document.addEventListener('DOMContentLoaded', () => {
+    loadEvents();
+    loadGallery();
+    initializeLoginForm();
+    checkLoginStatus();  // ADD THIS TOO
 });
 
 // Modal Close Functionality
@@ -688,6 +713,7 @@ window.addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     loadEvents();
     loadGallery();
+    initializeLoginForm();  // ADD THIS LINE
 });
 
 // Smooth Scroll for anchor links
@@ -699,6 +725,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
 
 
 
