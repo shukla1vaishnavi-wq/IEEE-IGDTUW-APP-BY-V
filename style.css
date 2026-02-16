@@ -40,3 +40,18 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 5px #00ff00;
 }
+
+/* Event Card Styling */
+.event-card {
+    border-left: 4px solid var(--ieee-blue) !important;
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+}
+
+.bg-primary-subtle {
+    background-color: #e7f1ff;
+}
