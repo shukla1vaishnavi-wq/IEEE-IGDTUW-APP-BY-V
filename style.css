@@ -1763,18 +1763,6 @@ body {
     }
 }
 
-/* Temporary fix - Always show menu on mobile */
-@media (max-width: 768px) {
-    .nav-menu {
-        position: relative !important;
-        transform: translateY(0) !important;
-        opacity: 1 !important;
-        pointer-events: all !important;
-        display: flex !important;
-        flex-direction: column !important;
-    }
-}
-
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 10px;
@@ -1792,6 +1780,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, var(--primary-light), var(--secondary-color));
 }
+
 
 
 
