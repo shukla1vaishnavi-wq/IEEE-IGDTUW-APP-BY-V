@@ -68,9 +68,9 @@ function navigateToSection(sectionId) {
 const eventsData = [
     {
         id: 1,
-        title: "Tech Fusion 2024",
+        title: "Tech Fusion 2026",
         category: "competition",
-        date: "2024-03-15",
+        date: "2026-03-23",
         time: "10:00 AM",
         venue: "Auditorium, IGDTUW",
         description: "Annual technical competition featuring coding challenges, hackathons, and innovation showcases.",
@@ -82,9 +82,9 @@ const eventsData = [
         id: 2,
         title: "AI & Machine Learning Workshop",
         category: "workshop",
-        date: "2024-03-20",
+        date: "2026-03-31",
         time: "2:00 PM",
-        venue: "Lab 301, IGDTUW",
+        venue: "Auditorium, IGDTUW",
         description: "Hands-on workshop on artificial intelligence and machine learning fundamentals with industry experts.",
         image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&h=500&fit=crop",
         registrationLink: "https://forms.gle/sample2",
@@ -94,7 +94,7 @@ const eventsData = [
         id: 3,
         title: "Women in Tech: Career Webinar",
         category: "webinar",
-        date: "2024-03-25",
+        date: "2026-04-25",
         time: "5:00 PM",
         venue: "Online (Zoom)",
         description: "Interactive webinar featuring successful women leaders in technology sharing their journeys and insights.",
@@ -106,9 +106,9 @@ const eventsData = [
         id: 4,
         title: "IoT Innovation Challenge",
         category: "competition",
-        date: "2024-04-05",
+        date: "2026-05-30",
         time: "9:00 AM",
-        venue: "Innovation Center, IGDTUW",
+        venue: "Seminar Hall, IGDTUW",
         description: "Build innovative IoT solutions to solve real-world problems. Exciting prizes for winners!",
         image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&h=500&fit=crop",
         registrationLink: "https://forms.gle/sample4",
@@ -118,9 +118,9 @@ const eventsData = [
         id: 5,
         title: "Web Development Bootcamp",
         category: "workshop",
-        date: "2024-04-10",
+        date: "2026-06-10",
         time: "11:00 AM",
-        venue: "Computer Lab, IGDTUW",
+        venue: "Computer Centre, IGDTUW",
         description: "Intensive 3-day bootcamp covering HTML, CSS, JavaScript, and modern web frameworks.",
         image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=500&fit=crop",
         registrationLink: "https://forms.gle/sample5",
@@ -708,6 +708,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
 
 
 
