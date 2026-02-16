@@ -3,98 +3,574 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IEEE IGDTUW App</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>IEEE IGDTUW - Innovation & Excellence</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div id="app">
-        <header class="app-header sticky-top shadow-sm">
-            <div class="container py-2 d-flex justify-content-between align-items-center">
-                <h5 class="m-0 fw-bold text-white">IEEE IGDTUW</h5>
-                <div class="status-dot"></div>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <div class="logo-container">
+                <img src="https://ieee-igdtuw.github.io/ieeeigdtuw/_next/static/media/white_logo.af1b9d82.png" alt="IEEE Logo" class="splash-logo">
             </div>
-        </header>
-
-        <main class="container mt-4">
-            <div class="hero-section p-4 rounded-4 shadow-sm text-white">
-                <h2 class="fw-bold">IEEE Connect</h2>
-                <p class="small">Empowering Women in Technology. Welcome to the IGDTUW Chapter Hub.</p>
+            <h1 class="glowing-text">IEEE IGDTUW</h1>
+            <p class="splash-tagline">Indira Gandhi Delhi Technical University for Women</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
             </div>
+        </div>
+    </div>
 
-            <section id="event-hub" class="mt-4">
-                <h6 class="fw-bold mb-3 text-secondary">Upcoming IEEE Events</h6>
-                
-                <div class="card event-card border-0 shadow-sm rounded-4 mb-3">
-                    <div class="card-body p-3">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge rounded-pill bg-primary-subtle text-primary px-3">Hackathon</span>
-                            <small class="text-muted">Live Now</small>
+    <!-- Main App Container -->
+    <div id="main-app" style="display: none;">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="https://ieee-igdtuw.github.io/ieeeigdtuw/_next/static/media/white_logo.af1b9d82.png" alt="IEEE Logo">
+                    <span>IEEE IGDTUW</span>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active" data-section="home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#events" class="nav-link" data-section="events"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                    <li><a href="#recruitment" class="nav-link" data-section="recruitment"><i class="fas fa-users"></i> Recruitment</a></li>
+                    <li><a href="#gallery" class="nav-link" data-section="gallery"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li><a href="#membership" class="nav-link" data-section="membership"><i class="fas fa-id-card"></i> Membership</a></li>
+                    <li><a href="#feedback" class="nav-link" data-section="feedback"><i class="fas fa-comment-dots"></i> Feedback</a></li>
+                    <li><a href="#login" class="nav-link login-btn" data-section="login"><i class="fas fa-sign-in-alt"></i> Member Login</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Section -->
+            <section id="home" class="section active">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Welcome to <span class="highlight">IEEE IGDTUW</span></h1>
+                        <p class="hero-subtitle">Empowering Women in Technology | Advancing Innovation | Building Future Leaders</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="navigateToSection('events')">Upcoming Events</button>
+                            <button class="btn btn-secondary" onclick="navigateToSection('membership')">Join IEEE</button>
                         </div>
-                        <h6 class="fw-bold mb-1">Vivathon 2026</h6>
-                        <p class="text-muted mb-3" style="font-size: 0.8rem;">Showcase your innovation in this 12-hour mobile app development sprint.</p>
-                        
-                        <a href="https://forms.gle/dummyRegistration" target="_blank" class="btn btn-primary btn-sm w-100 rounded-pill fw-bold">Register via Google Forms</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <h3>500+</h3>
+                            <p>Active Members</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-calendar-check"></i>
+                            <h3>50+</h3>
+                            <p>Events Organized</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-award"></i>
+                            <h3>25+</h3>
+                            <p>Awards Won</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Section -->
+                <div class="about-section">
+                    <h2 class="section-title">About IEEE IGDTUW</h2>
+                    <div class="about-content">
+                        <p>The IEEE IGDTUW Student Branch is a vibrant community of passionate technologists, innovators, and leaders. We are committed to fostering technical excellence, professional development, and social responsibility among women in engineering and technology.</p>
+                        <div class="about-features">
+                            <div class="feature-card">
+                                <i class="fas fa-lightbulb"></i>
+                                <h3>Innovation</h3>
+                                <p>Fostering creative solutions to real-world problems</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-handshake"></i>
+                                <h3>Collaboration</h3>
+                                <p>Building a strong network of tech enthusiasts</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h3>Learning</h3>
+                                <p>Continuous skill development and knowledge sharing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="social-section">
+                    <h2 class="section-title">Connect With Us</h2>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/ieee-igdtuw/" target="_blank" class="social-link linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://www.instagram.com/ieeeigdtuw/" target="_blank" class="social-link instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://twitter.com/ieeeigdtuw" target="_blank" class="social-link twitter">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="https://ieee-igdtuw.github.io/ieeeigdtuw/" target="_blank" class="social-link website">
+                            <i class="fas fa-globe"></i>
+                            <span>Website</span>
+                        </a>
                     </div>
                 </div>
             </section>
-            <section id="recruit" class="mt-4 pb-4">
-                <h6 class="fw-bold mb-3 text-secondary">Join the Core Team</h6>
-                <div class="card recruit-card border-0 shadow-sm rounded-4 mb-3" style="background: #fff8e1;">
-                    <div class="card-body p-3">
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="role-icon me-2">🤝</div>
-                            <h6 class="fw-bold m-0">Technical Associate</h6>
+
+            <!-- Events Section -->
+            <section id="events" class="section">
+                <h2 class="section-title">Upcoming Events</h2>
+                <div class="events-filter">
+                    <button class="filter-btn active" data-filter="all">All Events</button>
+                    <button class="filter-btn" data-filter="workshop">Workshops</button>
+                    <button class="filter-btn" data-filter="webinar">Webinars</button>
+                    <button class="filter-btn" data-filter="competition">Competitions</button>
+                </div>
+                <div class="events-grid" id="eventsGrid">
+                    <!-- Events will be dynamically loaded here -->
+                </div>
+                <div class="empty-state" id="emptyEvents" style="display: none;">
+                    <i class="fas fa-calendar-times"></i>
+                    <p>No upcoming events at the moment. Stay tuned!</p>
+                </div>
+            </section>
+
+            <!-- Recruitment Section -->
+            <section id="recruitment" class="section">
+                <h2 class="section-title">Join Our Team</h2>
+                <p class="section-subtitle">Be part of something bigger. Apply for various positions in IEEE IGDTUW.</p>
+                
+                <div class="recruitment-tabs">
+                    <button class="tab-btn active" data-tab="core">Core Team</button>
+                    <button class="tab-btn" data-tab="associates">Associates</button>
+                    <button class="tab-btn" data-tab="coordinators">Coordinators</button>
+                </div>
+
+                <div class="recruitment-content">
+                    <div class="tab-content active" id="core">
+                        <div class="recruitment-info">
+                            <h3>Core Team Recruitment</h3>
+                            <div class="eligibility-criteria">
+                                <h4><i class="fas fa-check-circle"></i> Eligibility Criteria</h4>
+                                <ul>
+                                    <li>Must be a registered student of IGDTUW</li>
+                                    <li>Strong leadership and communication skills</li>
+                                    <li>Previous experience in organizing events (preferred)</li>
+                                    <li>Commitment to serve for the entire academic year</li>
+                                    <li>Minimum CGPA: 7.0</li>
+                                </ul>
+                            </div>
+                            <div class="available-positions">
+                                <h4><i class="fas fa-briefcase"></i> Available Positions</h4>
+                                <div class="positions-grid">
+                                    <div class="position-card">
+                                        <i class="fas fa-user-tie"></i>
+                                        <h5>Chairperson</h5>
+                                    </div>
+                                    <div class="position-card">
+                                        <i class="fas fa-user-shield"></i>
+                                        <h5>Vice Chairperson</h5>
+                                    </div>
+                                    <div class="position-card">
+                                        <i class="fas fa-wallet"></i>
+                                        <h5>Treasurer</h5>
+                                    </div>
+                                    <div class="position-card">
+                                        <i class="fas fa-pen"></i>
+                                        <h5>Secretary</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-apply" onclick="openRecruitmentForm('core')">
+                                <i class="fas fa-file-alt"></i> Apply Now
+                            </button>
                         </div>
-                        <p class="text-muted" style="font-size: 0.75rem;">Eligibility: 1st & 2nd Year students. Proficiency in Web/App dev preferred.</p>
-                        <ul class="ps-3 mb-3 text-secondary" style="font-size: 0.7rem;">
-                            <li>Role-specific screening</li>
-                            <li>Structured shortlisting process</li>
-                        </ul>
-                        <button class="btn btn-warning btn-sm w-100 rounded-pill fw-bold" onclick="showCriteria('Technical')">Check Eligibility</button>
+                    </div>
+
+                    <div class="tab-content" id="associates">
+                        <div class="recruitment-info">
+                            <h3>Associates Recruitment</h3>
+                            <div class="eligibility-criteria">
+                                <h4><i class="fas fa-check-circle"></i> Eligibility Criteria</h4>
+                                <ul>
+                                    <li>Must be a registered student of IGDTUW</li>
+                                    <li>Passionate about technology and learning</li>
+                                    <li>Good team player and communicator</li>
+                                    <li>Willingness to contribute 5-10 hours per week</li>
+                                    <li>Minimum CGPA: 6.5</li>
+                                </ul>
+                            </div>
+                            <div class="available-positions">
+                                <h4><i class="fas fa-briefcase"></i> Available Domains</h4>
+                                <div class="positions-grid">
+                                    <div class="position-card">
+                                        <i class="fas fa-code"></i>
+                                        <h5>Technical</h5>
+                                    </div>
+                                    <div class="position-card">
+                                        <i class="fas fa-bullhorn"></i>
+                                        <h5>Marketing</h5>
+                                    </div>
+                                    <div class="position-card">
+                                        <i class="fas fa-palette"></i>
+                                        <h5>Design</h5>
+                                    </div>
+                                    <div class="position-card">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        <h5>Content</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-apply" onclick="openRecruitmentForm('associates')">
+                                <i class="fas fa-file-alt"></i> Apply Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="coordinators">
+                        <div class="recruitment-info">
+                            <h3>Coordinators Recruitment</h3>
+                            <div class="eligibility-criteria">
+                                <h4><i class="fas fa-check-circle"></i> Eligibility Criteria</h4>
+                                <ul>
+                                    <li>Must be a registered student of IGDTUW</li>
+                                    <li>Experience in coordinating events or projects</li>
+                                    <li>Excellent organizational and time management skills</li>
+                                    <li>Ability to work under pressure and meet deadlines</li>
+                                    <li>Minimum CGPA: 6.75</li>
+                                </ul>
+                            </div>
+                            <div class="available-positions">
+                                <h4><i class="fas fa-briefcase"></i> Available Roles</h4>
+                                <div class="positions-grid">
+                                    <div class="position-card">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <h5>Event Coordinator</h5>
+                                    </div>
+                                    <div class="position-card">
+                                        <i class="fas fa-laptop-code"></i>
+                                        <h5>Technical Coordinator</h5>
+                                    </div>
+                                    <div class="position-card">
+                                        <i class="fas fa-comments"></i>
+                                        <h5>PR Coordinator</h5>
+                                    </div>
+                                    <div class="position-card">
+                                        <i class="fas fa-share-alt"></i>
+                                        <h5>Social Media Coordinator</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-apply" onclick="openRecruitmentForm('coordinators')">
+                                <i class="fas fa-file-alt"></i> Apply Now
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
-            <section id="gallery" class="mt-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="fw-bold m-0 text-secondary">Past Event Gallery</h6>
-                    <span class="badge bg-light text-dark border">Archive</span>
-                </div>
+
+            <!-- Gallery Section -->
+            <section id="gallery" class="section">
+                <h2 class="section-title">Past Events Gallery</h2>
+                <p class="section-subtitle">Relive the moments from our memorable events</p>
                 
-                <div class="gallery-container d-flex overflow-auto pb-2 gap-3 no-scrollbar">
-                    <div class="gallery-card flex-shrink-0 rounded-4 overflow-hidden shadow-sm">
-                        <img src="https://ieee-igdtuw.github.io/ieeeigdtuw/images/event1.jpg" alt="Innerve" class="img-fluid">
-                        <div class="gallery-overlay p-2">
-                            <p class="m-0 fw-bold text-white small">Innerve '25</p>
-                            <p class="m-0 text-white-50 x-small">Speaker: Dr. Anita</p>
+                <div class="gallery-filter">
+                    <button class="filter-btn active" data-year="all">All Years</button>
+                    <button class="filter-btn" data-year="2024">2024</button>
+                    <button class="filter-btn" data-year="2023">2023</button>
+                    <button class="filter-btn" data-year="2022">2022</button>
+                </div>
+
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Gallery items will be dynamically loaded -->
+                </div>
+            </section>
+
+            <!-- Membership Section -->
+            <section id="membership" class="section">
+                <h2 class="section-title">IEEE Membership</h2>
+                <p class="section-subtitle">Join the world's largest technical professional organization</p>
+
+                <div class="membership-benefits">
+                    <div class="benefit-card">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Global Network</h3>
+                        <p>Connect with over 400,000 members worldwide</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Access to Resources</h3>
+                        <p>Exclusive access to IEEE Xplore digital library</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Professional Development</h3>
+                        <p>Webinars, courses, and certification programs</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Recognition</h3>
+                        <p>Awards and recognition for technical achievements</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-users-cog"></i>
+                        <h3>Career Support</h3>
+                        <p>Job boards, career guidance, and mentorship</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-newspaper"></i>
+                        <h3>Publications</h3>
+                        <p>Access to journals, magazines, and conference papers</p>
+                    </div>
+                </div>
+
+                <div class="membership-types">
+                    <h3>Membership Plans</h3>
+                    <div class="plans-grid">
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h4>Student Member</h4>
+                                <p class="price">$32<span>/year</span></p>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Full IEEE membership benefits</li>
+                                <li><i class="fas fa-check"></i> Discounted rates for events</li>
+                                <li><i class="fas fa-check"></i> Access to IEEE Xplore</li>
+                                <li><i class="fas fa-check"></i> Career resources</li>
+                            </ul>
+                            <button class="btn btn-primary" onclick="window.open('https://www.ieee.org/membership/join/index.html', '_blank')">Join Now</button>
+                        </div>
+                        <div class="plan-card featured">
+                            <div class="badge">Popular</div>
+                            <div class="plan-header">
+                                <h4>Graduate Student Member</h4>
+                                <p class="price">$32<span>/year</span></p>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> All student member benefits</li>
+                                <li><i class="fas fa-check"></i> Advanced career tools</li>
+                                <li><i class="fas fa-check"></i> Research support</li>
+                                <li><i class="fas fa-check"></i> Publishing opportunities</li>
+                            </ul>
+                            <button class="btn btn-primary" onclick="window.open('https://www.ieee.org/membership/join/index.html', '_blank')">Join Now</button>
                         </div>
                     </div>
-                    <div class="gallery-card flex-shrink-0 rounded-4 overflow-hidden shadow-sm">
-                        <img src="https://ieee-igdtuw.github.io/ieeeigdtuw/images/event2.jpg" alt="Workshop" class="img-fluid">
-                        <div class="gallery-overlay p-2">
-                            <p class="m-0 fw-bold text-white small">Tech-Talks</p>
-                            <p class="m-0 text-white-50 x-small">Outcome: 200+ Certs</p>
+                </div>
+            </section>
+
+            <!-- Feedback Section -->
+            <section id="feedback" class="section">
+                <h2 class="section-title">We Value Your Feedback</h2>
+                <p class="section-subtitle">Help us improve our events and services</p>
+
+                <div class="feedback-container">
+                    <div class="feedback-info">
+                        <i class="fas fa-comments"></i>
+                        <h3>Share Your Experience</h3>
+                        <p>Your feedback helps us organize better events and provide improved services to our members. We appreciate your time and honest opinions.</p>
+                    </div>
+
+                    <div class="feedback-form-container">
+                        <form id="feedbackForm" class="feedback-form">
+                            <div class="form-group">
+                                <label for="feedbackName">Name *</label>
+                                <input type="text" id="feedbackName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="feedbackEmail">Email *</label>
+                                <input type="email" id="feedbackEmail" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="eventName">Event Name *</label>
+                                <input type="text" id="eventName" placeholder="Which event did you attend?" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Overall Satisfaction *</label>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star" data-rating="1"></i>
+                                    <i class="fas fa-star" data-rating="2"></i>
+                                    <i class="fas fa-star" data-rating="3"></i>
+                                    <i class="fas fa-star" data-rating="4"></i>
+                                    <i class="fas fa-star" data-rating="5"></i>
+                                </div>
+                                <input type="hidden" id="rating" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="feedbackMessage">Your Feedback *</label>
+                                <textarea id="feedbackMessage" rows="5" placeholder="Share your experience, suggestions, or concerns..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="suggestions">Suggestions for Improvement</label>
+                                <textarea id="suggestions" rows="3" placeholder="What can we do better?"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Submit Feedback
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Login Section -->
+            <section id="login" class="section">
+                <div class="login-container">
+                    <div class="login-card">
+                        <div class="login-header">
+                            <i class="fas fa-user-shield"></i>
+                            <h2>Member Login</h2>
+                            <p>Access your IEEE IGDTUW member dashboard</p>
+                        </div>
+
+                        <form id="loginForm" class="login-form">
+                            <div class="form-group">
+                                <label for="loginEmail">
+                                    <i class="fas fa-envelope"></i> Email Address
+                                </label>
+                                <input type="email" id="loginEmail" placeholder="your.email@igdtuw.ac.in" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="loginPassword">
+                                    <i class="fas fa-lock"></i> Password
+                                </label>
+                                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                            </div>
+
+                            <div class="form-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="rememberMe">
+                                    <span>Remember me</span>
+                                </label>
+                                <a href="#" class="forgot-password">Forgot Password?</a>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </button>
+                        </form>
+
+                        <div class="login-footer">
+                            <p>Not a member yet? <a href="#membership" onclick="navigateToSection('membership')">Join IEEE</a></p>
                         </div>
                     </div>
-                    <div class="gallery-card flex-shrink-0 rounded-4 overflow-hidden shadow-sm">
-                        <div class="placeholder-img bg-secondary d-flex align-items-center justify-content-center text-white small">Coming Soon</div>
-                        <div class="gallery-overlay p-2">
-                            <p class="m-0 fw-bold text-white small">WIE Visit</p>
+
+                    <!-- Member Dashboard (Hidden by default) -->
+                    <div id="memberDashboard" class="member-dashboard" style="display: none;">
+                        <div class="dashboard-header">
+                            <div class="member-info">
+                                <div class="member-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div>
+                                    <h3 id="memberName">Welcome back!</h3>
+                                    <p id="memberRole" class="member-role">Coordinator</p>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
+                        </div>
+
+                        <div class="dashboard-content">
+                            <div class="dashboard-card">
+                                <i class="fas fa-calendar-check"></i>
+                                <h4>Manage Events</h4>
+                                <p>Create and manage upcoming events</p>
+                                <button class="btn btn-sm btn-primary">Go to Events</button>
+                            </div>
+                            <div class="dashboard-card">
+                                <i class="fas fa-users"></i>
+                                <h4>Member Management</h4>
+                                <p>View and manage team members</p>
+                                <button class="btn btn-sm btn-primary">View Members</button>
+                            </div>
+                            <div class="dashboard-card">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>Analytics</h4>
+                                <p>View event and member statistics</p>
+                                <button class="btn btn-sm btn-primary">View Analytics</button>
+                            </div>
+                            <div class="dashboard-card">
+                                <i class="fas fa-cog"></i>
+                                <h4>Settings</h4>
+                                <p>Manage your account settings</p>
+                                <button class="btn btn-sm btn-primary">Go to Settings</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
 
-        <nav class="bottom-nav fixed-bottom bg-white border-top d-flex justify-content-around align-items-center">
-            <div class="nav-item active">Home</div>
-            <div class="nav-item">Events</div>
-            <div class="nav-item">Recruit</div>
-            <div class="nav-item">More</div>
-        </nav>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>IEEE IGDTUW</h4>
+                    <p>Indira Gandhi Delhi Technical University for Women</p>
+                    <p>Kashmere Gate, Delhi - 110006</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#recruitment">Recruitment</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="#feedback">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> ieeeigdtuw@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91-XXX-XXX-XXXX</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/ieee-igdtuw/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/ieeeigdtuw/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/ieeeigdtuw" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 IEEE IGDTUW. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
+
+    <!-- Event Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="eventModalContent"></div>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content modal-gallery">
+            <span class="close-modal">&times;</span>
+            <div id="galleryModalContent"></div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
-
-
