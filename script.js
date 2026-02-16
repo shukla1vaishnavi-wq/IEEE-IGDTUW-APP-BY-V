@@ -64,6 +64,21 @@ function navigateToSection(sectionId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// Bottom Navigation (Mobile)
+const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+
+bottomNavItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sectionId = item.getAttribute('data-section');
+        navigateToSection(sectionId);
+        
+        // Update active state
+        bottomNavItems.forEach(nav => nav.classList.remove('active'));
+        item.classList.add('active');
+    });
+});
+
 // Sample Events Data
 const eventsData = [
     {
@@ -643,6 +658,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
 
 
 
