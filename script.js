@@ -726,13 +726,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Register Service Worker for PWA
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('✅ PWA: Service Worker registered successfully!');
+                console.log('Scope:', registration.scope);
+            })
+            .catch(error => {
+                console.log('❌ PWA: Service Worker registration failed:', error);
+            });
+    });
+}
 
+// PWA Install Prompt
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    console.log('💡 PWA: Install prompt available');
+});
 
-
-
-
-
-
-
-
-
+// Log when app is installed
+window.addEventListener('appinstalled', () => {
+    console.log('🎉 PWA: App installed successfully!');
+    deferredPrompt = null;
+});
