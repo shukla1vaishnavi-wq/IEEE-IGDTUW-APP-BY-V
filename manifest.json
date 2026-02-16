@@ -1,0 +1,64 @@
+{
+  "name": "IEEE IGDTUW - Official App",
+  "short_name": "IEEE IGDTUW",
+  "description": "Official application for IEEE IGDTUW Student Branch - Event Management, Recruitment & More",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e27",
+  "theme_color": "#00629B",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "https://ieee-igdtuw.github.io/ieeeigdtuw/_next/static/media/white_logo.af1b9d82.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://ieee-igdtuw.github.io/ieeeigdtuw/_next/static/media/white_logo.af1b9d82.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity", "social"],
+  "shortcuts": [
+    {
+      "name": "Upcoming Events",
+      "short_name": "Events",
+      "description": "View upcoming IEEE IGDTUW events",
+      "url": "/#events",
+      "icons": [
+        {
+          "src": "https://ieee-igdtuw.github.io/ieeeigdtuw/_next/static/media/white_logo.af1b9d82.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Recruitment",
+      "short_name": "Join Us",
+      "description": "Apply for IEEE IGDTUW positions",
+      "url": "/#recruitment",
+      "icons": [
+        {
+          "src": "https://ieee-igdtuw.github.io/ieeeigdtuw/_next/static/media/white_logo.af1b9d82.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Member Login",
+      "short_name": "Login",
+      "description": "Access member dashboard",
+      "url": "/#login",
+      "icons": [
+        {
+          "src": "https://ieee-igdtuw.github.io/ieeeigdtuw/_next/static/media/white_logo.af1b9d82.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
