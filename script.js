@@ -15,7 +15,7 @@ navItems.forEach(item => {
 
 // Recruitment Criteria Logic
 function showCriteria(role) {
-    alert(`IEEE Recruitment for ${role} Role:\n\n1. Active IEEE Membership (Optional but preferred)\n2. CGPA > 7.5\n3. Passion for IGDTUW community growth.\n\nForm link will be sent to your student email.`);
+    alert(`IEEE Recruitment for ${role} Role:\n\n1. Active IEEE Membership\n2. CGPA > 7.5\n3. Passion for IGDTUW community growth.\n\nForm link will be sent to your student email.`);
 }
 
 // Gallery Item Detail Simulation
@@ -25,4 +25,5 @@ document.querySelectorAll('.gallery-card').forEach(card => {
         alert(`Institutional Memory: Viewing ${title} highlights.\n\n preservation of outcomes and speakers is key to IEEE credibility.`);
     });
 });
+
 
