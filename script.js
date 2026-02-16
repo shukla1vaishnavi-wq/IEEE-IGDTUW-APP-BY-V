@@ -473,7 +473,67 @@ loginForm.addEventListener('submit', (e) => {
     
     const email = document.getElementById('loginEmail').value;
     const ieeeMemberNo = document.getElementById('ieeeMembershipNo').value;
-    const selectedRole = document.getElementById('memberRole').value;
+    loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const email = document.getElementById('loginEmail').value;
+    const ieeeMemberNo = document.getElementById('ieeeMembershipNo').value;
+    const selectedRoles = document.getElementById('memberRole').value; // This will contain comma-separated roles
+    const password = document.getElementById('loginPassword').value;
+    
+    // Validate email domain - must be @igdtuw.ac.in
+    if (!email.endsWith('@igdtuw.ac.in')) {
+        alert('❌ Please use your IGDTUW college email (@igdtuw.ac.in)');
+        return;
+    }
+    
+    // Validate email format: name + roll number digits + btece/btcse etc + year + @igdtuw.ac.in
+    const emailPattern = /^[a-z]+\d{3}(bt|mt|phd)(cse|ece|it|mca|mae|en|ep)[a-z]*\d{2}@igdtuw\.ac\.in$/i;
+    if (!emailPattern.test(email)) {
+        alert('❌ Invalid email format!\n\nExpected format: name + 3 digits + bt/mt + branch + year\nExample: vaishnavi075btece25@igdtuw.ac.in');
+        return;
+    }
+    
+    // Validate IEEE Membership Number format (9 digits)
+    if (!/^\d{9}$/.test(ieeeMemberNo)) {
+        alert('❌ IEEE Membership Number must be exactly 9 digits');
+        return;
+    }
+    
+    // Validate role selection
+    if (!selectedRoles) {
+        alert('❌ Please select at least one role in IEEE IGDTUW');
+        return;
+    }
+    
+    // Extract name from email (part before the numbers)
+    const nameFromEmail = email.match(/^([a-z]+)/i)[1];
+    const capitalizedName = nameFromEmail.charAt(0).toUpperCase() + nameFromEmail.slice(1);
+    
+    // For demo: Accept any password with minimum 6 characters
+    if (password.length < 6) {
+        alert('❌ Password must be at least 6 characters long');
+        return;
+    }
+    
+    // Success - All validations passed
+    loginCard.style.display = 'none';
+    memberDashboard.style.display = 'block';
+    
+    // Update member info
+    document.getElementById('memberName').textContent = `Welcome, ${capitalizedName}!`;
+    document.getElementById('memberRole').textContent = selectedRoles;
+    
+    // Store login state
+    sessionStorage.setItem('loggedIn', 'true');
+    sessionStorage.setItem('memberName', capitalizedName);
+    sessionStorage.setItem('memberRole', selectedRoles);
+    sessionStorage.setItem('memberEmail', email);
+    sessionStorage.setItem('ieeeMemberNo', ieeeMemberNo);
+    
+    // Success message
+    alert(`✅ Welcome ${capitalizedName}!\n\nRole(s): ${selectedRoles}\nIEEE Member ID: ${ieeeMemberNo}\nEmail: ${email}`);
+});
     const password = document.getElementById('loginPassword').value;
     
     // Validate email domain - must be @igdtuw.ac.in
@@ -587,6 +647,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
 
 
 
